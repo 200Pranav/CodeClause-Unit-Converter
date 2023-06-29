@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Unit Converter</h2>
+        <label>Enter a value:</label>
+        <input type="number" id="inputValue" placeholder="Enter a value">
+        <label>Select the conversion:</label>
+        <select id="conversionType">
+            <option value="cmToInch">Centimeters to Inches</option>
+            <option value="inchToCm">Inches to Centimeters</option>
+            <option value="kmToMiles">Kilometers to Miles</option>
+            <option value="milesToKm">Miles to Kilometers</option>
+        </select>
+        <button onclick="convert()">Convert</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function convert() {
+            var inputValue = document.getElementById("inputValue").value;
+            var conversionType = document.getElementById("conversionType").value;
+            var result = document.getElementById("result");
+
+            if (conversionType === "cmToInch") {
+                result.innerText = inputValue + " centimeters is equal to " + (inputValue * 0.393701) + " inches.";
+            } else if (conversionType === "inchToCm") {
+                result.innerText = inputValue + " inches is equal to " + (inputValue * 2.54) + " centimeters.";
+            } else if (conversionType === "kmToMiles") {
+                result.innerText = inputValue + " kilometers is equal to " + (inputValue * 0.621371) + " miles.";
+            } else if (conversionType === "milesToKm") {
+                result.innerText = inputValue + " miles is equal to " + (inputValue * 1.60934) + " kilometers.";
+            }
+        }
+    </script>
+</body>
+</html>
